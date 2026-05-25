@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vaishnavi Ram Janakiram — Business &amp; Data Analyst</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #ffffff;
+  --bg2: #fcfcfd;
+  --bg3: #f8fafc;
+  --surface: #ffffff;
+  --surface2: #f1f5f9;
+  --border: rgba(0,0,0,0.06);
+  --border2: rgba(0,0,0,0.12);
+  --accent: #2563eb; /* Vibrant Professional Blue */
+  --accent-dim: rgba(37, 99, 235, 0.05);
+  --accent-mid: rgba(37, 99, 235, 0.15);
+  --white: #0f172a; /* Used for main text headings in light mode */
+  --gray: #475569;
+  --gray2: #64748b;
+  --serif: 'Playfair Display', serif;
+  --sans: 'Lora', serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--gray);
+  font-size: 17px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  height: 70px;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray2);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-mid);
+  padding: 8px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+}
+
+.nav-pill:hover { background: rgba(37, 99, 235, 0.1); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  padding: 120px 4rem 4rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+  top: 50%;
+  right: -100px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.hero-left { position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-mid);
+  padding: 6px 16px 6px 12px;
+  border-radius: 100px;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.06em;
+}
+
+.hero-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.5; transform:scale(0.8); }
+}
+
+h1.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1.5px;
+  color: var(--white);
+  margin-bottom: 2.5rem;
+}
+
+h1.hero-name .accent { color: var(--accent); }
+h1.hero-name .dim { color: var(--gray2); opacity: 0.5; }
+
+.hero-desc {
+  font-size: 19px;
+  color: var(--gray);
+  max-width: 500px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.hero-desc strong { color: var(--white); font-weight: 600; }
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-solid {
+  background: var(--accent);
+  color: white;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s;
+}
+
+.btn-solid:hover { opacity: 0.9; }
+
+.btn-outline {
+  color: var(--white);
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.stat-card:hover { border-color: var(--accent-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+
+.stat-icon {
+  width: 52px; height: 52px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-num span { color: var(--accent); }
+.stat-label { font-size: 13px; color: var(--gray2); font-weight: 400; }
+
+.hero-quote-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 1.5rem 2rem;
+  margin-top: 0.5rem;
+}
+
+.hero-quote-card p {
+  font-size: 15px;
+  color: var(--gray2);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ─── SECTIONS ─── */
+section {
+  padding: 7rem 4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 30px; height: 1px;
+  background: var(--accent);
+}
+
+h2.stitle {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 4rem;
+  color: var(--white);
+}
+
+h2.stitle em { font-style: italic; color: var(--accent); font-weight: 400; }
+
+/* ─── ABOUT ─── */
+#about {
+  background: var(--bg2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.about-body p {
+  font-size: 17px;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+.about-body p strong { color: var(--white); font-weight: 600; }
+
+.about-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.acard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+}
+
+.acard:hover { border-color: var(--accent-mid); box-shadow: 0 8px 20px rgba(0,0,0,0.03); }
+
+.acard-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.acard p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ─── EXPERIENCE ─── */
+#experience { background: var(--bg); }
+
+.exp-timeline { display: flex; flex-direction: column; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.exp-item:last-child { border-bottom: none; }
+
+.exp-co {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.exp-period {
+  font-size: 13px;
+  color: var(--gray2);
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+}
+
+.exp-loc {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--gray2);
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+
+.exp-role {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  color: var(--white);
+}
+
+.exp-body p {
+  font-size: 16px;
+  color: var(--gray);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+
+.tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--gray2);
+  white-space: nowrap;
+}
+
+.tag.hi {
+  background: var(--accent-dim);
+  border-color: var(--accent-mid);
+  color: var(--accent);
+}
+
+/* ─── PROJECTS ─── */
+#projects { background: var(--bg2); }
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.pcard {
+  background: var(--surface);
+  padding: 3rem;
+  position: relative;
+  transition: background 0.2s;
+  height: 100%;
+}
+
+.pcard:hover { background: var(--bg2); }
+
+.pnum {
+  font-family: var(--serif);
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--surface2);
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.2s;
+  opacity: 0.5;
+}
+
+.pcard:hover .pnum { color: var(--accent-mid); }
+
+.ptag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+.pcard h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: var(--white);
+  position: relative; z-index: 1;
+}
+
+.p-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.p-text {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.p-takeaway {
+  font-size: 14px;
+  color: var(--gray2);
+  font-style: italic;
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  line-height: 1.6;
+}
+
+.pcard.wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+/* ─── CASE STUDIES ─── */
+#casestudies { background: var(--bg); }
+
+.cs-list { display: flex; flex-direction: column; }
+
+.cs-item {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.cs-item:last-child { border-bottom: none; }
+
+.cs-side {
+  padding: 3.5rem 3rem 3.5rem 0;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cs-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cs-title {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+.cs-sub {
+  font-size: 13px;
+  color: var(--gray2);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.cs-body {
+  padding: 3.5rem 0 3.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cs-blk-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gray2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.cs-blk p {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.cs-callout {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem 1.75rem;
+}
+
+.cs-callout-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.cs-callout p {
+  font-size: 14px;
+  color: var(--white);
+  font-style: italic;
+  line-height: 1.65;
+}
+
+/* ─── THINKING ─── */
+#thinking { background: var(--bg2); }
+
+.think-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.tcard {
+  background: var(--surface);
+  padding: 2.5rem;
+  transition: background 0.2s;
+  height: 100%;
+}
+
+.tcard:hover { background: var(--bg2); }
+
+.tcard-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.tcard h4 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.tcard p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+.tcard-quote {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--gray2);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ─── SKILLS ─── */
+#skills { background: var(--bg); }
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.skills-intro p {
+  font-size: 17px;
+  color: var(--gray);
+  line-height: 1.9;
+  font-weight: 400;
+}
+
+.skill-groups { display: flex; flex-direction: column; gap: 2.5rem; }
+
+.sg-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.spill {
+  font-size: 13px;
+  color: var(--gray);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.spill:hover { border-color: var(--accent-mid); color: var(--accent); background: var(--bg); }
+
+.spill.core {
+  background: var(--accent-dim);
+  border-color: var(--accent-mid);
+  color: var(--accent);
+}
+
+/* ─── EDUCATION ─── */
+#education {
+  background: var(--bg2);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background-color: var(--border);
+}
+
+.edu-block {
+  background: var(--surface);
+  padding: 5rem 4rem;
+}
+
+.edu-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edu-tag::before { content:''; display:inline-block; width:20px; height:1px; background:var(--accent); }
+
+.edu-deg {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.edu-school {
+  font-size: 14px;
+  color: var(--gray2);
+  margin-bottom: 2rem;
+}
+
+.edu-detail {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* ─── CONTACT ─── */
+#contact {
+  background: var(--bg);
+  border-bottom: none;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.contact-desc {
+  font-size: 17px;
+  color: var(--gray);
+  line-height: 1.8;
+  font-weight: 400;
+  margin-top: -1rem;
+}
+
+.clinks { display: flex; flex-direction: column; gap: 1rem; }
+
+.clink {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  padding: 1.25rem 1.75rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.clink:hover { border-color: var(--accent-mid); background: var(--surface); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+
+.clink-icon {
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+  color: var(--accent);
+}
+
+.clink-type {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gray2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.clink-val {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--gray2);
+  font-family: var(--mono);
+}
+
+footer a { color: var(--gray2); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--accent); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.hero-left > * {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+
+.hero-right { animation: fadeUp 0.8s 0.45s ease forwards; opacity: 0; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  nav { padding: 0 1.5rem; height: 60px; }
+  .nav-links { display: none; }
+  .nav-logo { font-size: 16px; }
+  .nav-pill { padding: 6px 14px; font-size: 10px; }
+  
+  section { padding: 5rem 1.5rem; }
+  .hero { grid-template-columns: 1fr; padding: 100px 1.5rem 4rem; min-height: auto; gap: 3rem; }
+  .hero-right { display: flex; flex-direction: column; }
+  .hero-name { font-size: 2.8rem; line-height: 1.1; }
+  .hero-desc { font-size: 17px; margin-bottom: 2rem; }
+  .hero-actions { gap: 1rem; }
+  .btn-solid, .btn-outline { width: 100%; text-align: center; padding: 16px; }
+  
+  #about { grid-template-columns: 1fr; gap: 4rem; }
+  
+  .exp-item { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; }
+  .exp-meta { border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+  
+  .proj-grid { grid-template-columns: 1fr; }
+  .pcard { padding: 2rem; }
+  .pcard.wide { grid-column: span 1; grid-template-columns: 1fr; gap: 2rem; }
+  .pnum { font-size: 3.5rem; top: 0.5rem; right: 1rem; }
+  
+  .cs-item { grid-template-columns: 1fr; }
+  .cs-side { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 0; }
+  .cs-body { padding: 2rem 0; }
+  
+  .think-grid { grid-template-columns: 1fr; }
+  .tcard { padding: 2rem; }
+  
+  .skills-layout { grid-template-columns: 1fr; gap: 3rem; }
+  
+  #education { grid-template-columns: 1fr; }
+  .edu-block { padding: 3rem 1.5rem; }
+  
+  .contact-layout { grid-template-columns: 1fr; gap: 4rem; }
+  .clink { padding: 1.25rem; }
+  
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 3rem 1.5rem; }
+}
+</style>
+<link href="https://lh3.googleusercontent.com/aida-public/AB6AXuCJsUegSHQ9jBwuzU39FTvwLzdA-zRREpDhF3P01-C1SE87COuFuo9QzU9UBgr8CA1A7aIMCYZsyrkXzZym0rWx0pwhw5ul2ZXNZ7iix9dtTPPA1efV5HXVAbik3RF_9eZYrjPhYkdkeYujd2xLAptDNViEk_jNcxnnIKMpmzMUgtFxu2K0mAyzL0_wlXGUOyXYwkZ1zZAkj-GpbjVvcE2LMj8nGirki4LniQszz5yISew5Tf66WSgp7Y6970U4uP-knpJlIq0n4p8" rel="icon"/></head>
+<body>
+<!-- NAV -->
+<nav>
+<a class="nav-logo" href="#top">VRJ<span class="">.</span></a>
+<ul class="nav-links">
+<li class=""><a class="" href="#about">About</a></li>
+<li class=""><a class="" href="#experience">Experience</a></li>
+<li class=""><a class="" href="#projects">Projects</a></li>
+<li class=""><a class="" href="#casestudies">Strategy</a></li>
+<li class=""><a class="" href="#skills">Skills</a></li>
+</ul>
+<a class="nav-pill" href="#contact">Let's Connect</a>
+</nav>
+<!-- HERO -->
+<section class="hero" id="top">
+<div class="hero-grid-bg"></div>
+<div class="hero-glow"></div>
+<div class="hero-left"><div class="hero-avatar-container" style="margin-bottom: 2rem;"><img alt="Vaishnavi Ram Janakiram" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJsUegSHQ9jBwuzU39FTvwLzdA-zRREpDhF3P01-C1SE87COuFuo9QzU9UBgr8CA1A7aIMCYZsyrkXzZym0rWx0pwhw5ul2ZXNZ7iix9dtTPPA1efV5HXVAbik3RF_9eZYrjPhYkdkeYujd2xLAptDNViEk_jNcxnnIKMpmzMUgtFxu2K0mAyzL0_wlXGUOyXYwkZ1zZAkj-GpbjVvcE2LMj8nGirki4LniQszz5yISew5Tf66WSgp7Y6970U4uP-knpJlIq0n4p8" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-mid); box-shadow: 0 4px 12px rgba(0,0,0,0.05);"/></div>
+<div class="hero-badge">
+<span class="hero-dot"></span>
+      Open to roles · Bengaluru, India
+    </div>
+<h1 class="hero-name">
+      Vaishnavi<br/>
+<span class="accent">Ram</span><br/>
+<span class="dim">Janakiram.</span>
+</h1>
+<p class="hero-desc">
+<strong>Business Analyst &amp; Data Analyst</strong> with a background across the UK and India. I find the question behind the question then build the SQL query, dashboard, or brief that makes the answer impossible to ignore.
+    </p>
+<div class="hero-actions">
+<a class="btn-solid" href="#projects">View Projects</a>
+<a class="btn-outline" href="#contact">Get in touch →</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="stat-card">
+<div class="stat-icon">📊</div>
+<div class="stat-body">
+<div class="stat-num">2<span class="">+</span></div>
+<div class="stat-label">Years of experience</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">🌍</div>
+<div class="stat-body">
+<div class="stat-num">2</div>
+<div class="stat-label">Countries worked in</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">⚡</div>
+<div class="stat-body">
+<div class="stat-num">5</div>
+<div class="stat-label">Major projects delivered</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">🛠</div>
+<div class="stat-body">
+<div class="stat-num">8<span class="">+</span></div>
+<div class="stat-label">Tools in stack</div>
+</div>
+</div>
+<div class="hero-quote-card">
+<p class="">"Raw data is just overhead until it is transformed into a clear competitive advantage. I bridge that gap through rigorous analysis and clear communication."</p>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+<div>
+<p class="eyebrow">01 — About</p>
+<h2 class="stitle">A profile,<br/>in plain <em>words.</em></h2>
+<div class="about-body">
+<p class="">I sit at the intersection of <strong>data, business systems, and structured problem solving</strong>. My work spans writing SQL queries to find patterns nobody asked about, building Power BI dashboards stakeholders actually use, and translating technical requirements into language developers and business owners can both agree on.</p>
+<p class="">My background crosses two countries: a technical internship at <strong>Symphony RetailAI</strong> in Bengaluru doing real ops work: API testing, CI/CD pipelines, deep SQL: then roles in <strong>London</strong> as a Business System Analyst and later a Business Development Analyst, where the job was making data change decisions, not just fill reports.</p>
+<p class="">When I look at a business problem, I try to answer three questions: what is happening, why it is happening, and what one change would move the needle. Everything else is noise.</p>
+</div>
+</div>
+<div class="about-cards">
+<div class="acard">
+<div class="acard-title">How I work</div>
+<p class="">Observe the signal: structure the problem: analyse with the right tool: recommend one clear next move. I write for non analysts, but think like a systems engineer.</p>
+</div>
+<div class="acard">
+<div class="acard-title">What makes me different</div>
+<p class="">Most analysts can pull a number. I can also ask whether that's the right number to pull: and write a brief that makes a stakeholder change their decision because of it.</p>
+</div>
+<div class="acard">
+<div class="acard-title">Currently looking for</div>
+<p class="">Business Analyst or Data Analyst roles in Bengaluru. Open to hybrid. Available immediately.</p>
+</div>
+</div>
+</section>
+<!-- EXPERIENCE -->
+<section id="experience">
+<p class="eyebrow">02 — Experience</p>
+<h2 class="stitle">Where I've <em>worked.</em></h2>
+<div class="exp-timeline">
+<div class="exp-item">
+<div class="exp-meta">
+<div class="exp-co">Global Tech Professionals</div>
+<div class="exp-period">Sept 2025 – Jan 2026</div>
+<span class="exp-loc">London, UK</span>
+</div>
+<div class="exp-body">
+<div class="exp-role">Business System Analyst</div>
+<p class="">Worked in an Agile Scrum environment managing the end to end requirement lifecycle: from stakeholder discovery sessions through to UAT sign off. Owned BRD and FRD documentation, ran Jira workflows, and acted as the bridge between business owners and engineering on delivery timelines and scope.</p>
+<p class="">Translated ambiguous stakeholder asks into structured user stories developers could build from without three rounds of clarification. Reduced requirement rework by owning acceptance criteria clarity before sprint kick off.</p>
+<div class="tags">
+<span class="tag hi">Agile Scrum</span>
+<span class="tag hi">Jira</span>
+<span class="tag">BRD FRD</span>
+<span class="tag">UAT</span>
+<span class="tag">User Stories</span>
+<span class="tag">Stakeholder Management</span>
+</div>
+</div>
+</div>
+<div class="exp-item">
+<div class="exp-meta">
+<div class="exp-co">Smart Move Education Group</div>
+<div class="exp-period">Mar 2024 – Feb 2025</div>
+<span class="exp-loc">London, UK</span>
+</div>
+<div class="exp-body">
+<div class="exp-role">Business Development Analyst</div>
+<p class="">Owned analytics for the student recruitment funnel: from first enquiry to enrolment. Built Power BI dashboards tracking conversion rates, seasonal demand patterns, and campaign performance across channels. Identified the funnel stage leaking most prospects and drove an intervention that lifted conversion by 18% year on year.</p>
+<p class="">Produced monthly trend briefs for leadership that replaced a 30 slide deck with a one page decision summary. Managed CRM reporting and built Excel models for enrolment forecasting.</p>
+<div class="tags">
+<span class="tag hi">Power BI</span>
+<span class="tag hi">Excel</span>
+<span class="tag">CRM Reporting</span>
+<span class="tag">Funnel Analysis</span>
+<span class="tag">Trend Analysis</span>
+<span class="tag">Dashboards</span>
+</div>
+</div>
+</div>
+<div class="exp-item">
+<div class="exp-meta">
+<div class="exp-co">Symphony RetailAI</div>
+<div class="exp-period">Jan 2022 – Nov 2022</div>
+<span class="exp-loc">Bengaluru, IN</span>
+</div>
+<div class="exp-body">
+<div class="exp-role">Professional Services Intern</div>
+<p class="">Technical internship in a product engineering environment. Wrote SQL queries for operational data analysis, ran API validation testing in Postman, and supported CI CD pipeline monitoring on Azure DevOps. This is where I learned that data quality is a product decision, not just an engineering one.</p>
+<p class="">Developed an instinct for where data breaks in transit: between systems, between teams, between what was specified and what was built: and how to document failures in a way that actually gets them fixed.</p>
+<div class="tags">
+<span class="tag hi">SQL</span>
+<span class="tag hi">Postman</span>
+<span class="tag">Azure DevOps</span>
+<span class="tag">CI CD</span>
+<span class="tag">API Testing</span>
+<span class="tag">Data Quality</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROJECTS -->
+<section id="projects">
+<p class="eyebrow">03 — Projects</p>
+<h2 class="stitle">My <em>projects.</em></h2>
+<div class="proj-grid">
+<div class="pcard">
+<span class="pnum">01</span>
+<div class="ptag-row">
+<span class="tag hi">SQL</span><span class="tag hi">Power BI</span>
+<span class="tag">DAX</span><span class="tag">Excel</span>
+</div>
+<h3 class="">Retail Campaign Performance Dashboard</h3>
+<p class="p-label">The problem</p>
+<p class="p-text">A retail marketing team had campaign data across three channels with no single view of what was working. Spend decisions were made on gut feel because reporting took a week to rebuild manually.</p>
+<p class="p-label">The approach</p>
+<p class="p-text">Cleaned raw data in SQL, rebuilt the conversion funnel in Excel, then put spend, CTR, CPL, and ROAS on one Power BI screen: filterable by channel and period. Key decisions readable in under 60 seconds.</p>
+<p class="p-takeaway"><strong>Takeaway:</strong> A good dashboard is opinionated. It answers questions in the order people think them.</p>
+</div>
+<div class="pcard">
+<span class="pnum">02</span>
+<div class="ptag-row">
+<span class="tag hi">Power BI</span><span class="tag hi">Funnel Analysis</span>
+<span class="tag">CRM</span><span class="tag">Excel</span>
+</div>
+<h3 class="">Student Enrolment Funnel Analysis</h3>
+<p class="p-label">The problem</p>
+<p class="p-text">Smart Move Education's leadership knew enrolment was soft but couldn't pinpoint where prospects were dropping. Reports showed totals, not turning points.</p>
+<p class="p-label">The approach</p>
+<p class="p-text">Rebuilt the funnel stage by stage in Power BI, layered in seasonality and channel source. Isolated the single highest drop stage, proposed three ranked interventions. Conversion improved 18% YoY.</p>
+<p class="p-takeaway"><strong>Takeaway:</strong> The most useful analysis makes a decision obvious, not a report comprehensive.</p>
+</div>
+<div class="pcard wide">
+<div>
+<span class="pnum" style="font-size:3.5rem; top:1rem; right:2rem;">03</span>
+<div class="ptag-row">
+<span class="tag hi">Python</span><span class="tag hi">SQL</span>
+<span class="tag">Machine Learning</span><span class="tag">Web App</span>
+</div>
+<h3 class="">Employee Attrition Analysis — VTU Final Year Project</h3>
+<p class="p-label">The problem</p>
+<p class="p-text">HR managers were losing people they didn't expect to lose. Data existed: tenure, performance, department: but no one had turned it into something HR could act on before the resignation letter arrived.</p>
+</div>
+<div>
+<p class="p-label">The approach</p>
+<p class="p-text">Led a 4 person team to build a full HR analytics web application. Designed the SQL schema, wrote layered queries to surface attrition by department and tenure band, used Python for predictive modelling. Built a web interface so HR managers could filter and drill down without needing technical skills.</p>
+<p class="p-takeaway"><strong>My role:</strong> Database design, SQL query development, Python pipeline, sprint coordination across 4 members. The gap between data and action is almost always a design problem, not a data problem.</p>
+<div class="tags" style="margin-top:1rem">
+<span class="tag hi">Led team of 4</span>
+<span class="tag">SQL schema design</span>
+<span class="tag">Python ML</span>
+<span class="tag">Web interface</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CASE STUDIES -->
+<section id="casestudies">
+<p class="eyebrow">04 — Business Thinking</p>
+<h2 class="stitle">Case studies in <em>how I think.</em></h2>
+<div class="cs-list">
+<div class="cs-item">
+<div class="cs-side">
+<div class="cs-lbl">Product Analysis</div>
+<div class="cs-title">Why Zomato's real product isn't food delivery</div>
+<div class="cs-sub">Consumer tech · Bengaluru market · Platform strategy</div>
+<div class="tags" style="margin-top:0.5rem">
+<span class="tag">Platform thinking</span>
+<span class="tag">User behaviour</span>
+<span class="tag">Business model</span>
+</div>
+</div>
+<div class="cs-body">
+<div class="cs-blk">
+<div class="cs-blk-lbl">The observation</div>
+<p class="">Most people use Zomato when they're hungry. But that's not actually Zomato's business. The real product is the decision making moment before the order: browse, compare, read reviews, check photos: that's where value is created, not at checkout.</p>
+</div>
+<div class="cs-blk">
+<div class="cs-blk-lbl">What the data reveals</div>
+<p class="">Zomato's engagement metrics tell a different story than its GMV. Users spend disproportionate time in discovery: browsing restaurants they don't order from, reading reviews for places they haven't visited. This is intent data. Zomato isn't just a delivery platform: it's India's largest restaurant intent database, and every session feeds a recommendation model that compounds over time.</p>
+</div>
+<div class="cs-callout">
+<div class="cs-callout-lbl">Business takeaway</div>
+<p class="">The metric a company obsesses over is its strategy made visible. Zomato counts sessions. Swiggy counts orders. Same market, different companies.</p>
+</div>
+</div>
+</div>
+<div class="cs-item">
+<div class="cs-side">
+<div class="cs-lbl">Financial Analysis</div>
+<div class="cs-title">Fintech User Retention: Beyond the Sign up</div>
+<div class="cs-sub">Digital Banking · User Lifecycle · Predictive Churn</div>
+<div class="tags" style="margin-top:0.5rem">
+<span class="tag">Retention Modelling</span>
+<span class="tag">Financial Data</span>
+<span class="tag">Behavioral Clusters</span>
+</div>
+</div>
+<div class="cs-body">
+<div class="cs-blk">
+<div class="cs-blk-lbl">The Thesis</div>
+<p class="">In Fintech, the cost of acquisition is secondary to the cost of dormancy. A user who signs up but never transacts is a net loss. The goal of retention analysis is identifying the "Activation Event" that shifts a user from curious to committed.</p>
+</div>
+<div class="cs-blk">
+<div class="cs-blk-lbl">Analytical Approach</div>
+<p class="">By clustering users based on transaction frequency and type: recurring bills versus peer to peer transfers: we can predict churn before the account goes dark. The data suggests that users who set up an automated transfer in their first week have a 4x higher LTV. This insight shifts product focus from broad marketing to specific onboarding nudges.</p>
+</div>
+<div class="cs-callout">
+<div class="cs-callout-lbl">Business takeaway</div>
+<p class="">Transaction variety is a better predictor of long term loyalty than initial deposit size. Diversify the utility, solidify the user.</p>
+</div>
+</div>
+</div>
+<div class="cs-item">
+<div class="cs-side">
+<div class="cs-lbl">Health Tech Analysis</div>
+<div class="cs-title">Patient Data Flow: Optimising Engagement</div>
+<div class="cs-sub">Healthcare UX · Data Interoperability · Clinical Workflows</div>
+<div class="tags" style="margin-top:0.5rem">
+<span class="tag">Data Privacy</span>
+<span class="tag">Health Outcomes</span>
+<span class="tag">System Integration</span>
+</div>
+</div>
+<div class="cs-body">
+<div class="cs-blk">
+<div class="cs-blk-lbl">The Challenge</div>
+<p class="">Health apps often suffer from "notification fatigue." When data flow from wearables isn't translated into actionable insights, users disengage. The challenge is turning cold physiological metrics into warm, encouraging behavioral nudges without compromising clinical accuracy.</p>
+</div>
+<div class="cs-blk">
+<div class="cs-blk-lbl">The Data Solution</div>
+<p class="">Analysing patient drop off points reveals that data entry friction is the primary killer of engagement. By integrating third party health APIs and automating the flow: rather than asking for manual logging: we increase longitudinal data consistency. The cleaner the data flow, the more robust the predictive health models become.</p>
+</div>
+<div class="cs-callout">
+<div class="cs-callout-lbl">Health takeaway</div>
+<p class="">In healthcare, friction is more than a UX issue: it is a barrier to wellness. Automating data capture is the single biggest lever for patient compliance.</p>
+</div>
+</div>
+</div>
+<div class="cs-item">
+<div class="cs-side">
+<div class="cs-lbl">Sports Analytics</div>
+<div class="cs-title">Fan Engagement: Moving from Spectator to Participant</div>
+<div class="cs-sub">Fan Lifecycle · Gamification · Revenue Diversification</div>
+<div class="tags" style="margin-top:0.5rem">
+<span class="tag">Audience Analytics</span>
+<span class="tag">Gamification</span>
+<span class="tag">Monetization</span>
+</div>
+</div>
+<div class="cs-body">
+<div class="cs-blk">
+<div class="cs-blk-lbl">The Observation</div>
+<p class="">Traditional sports broadcasting is a one way street. Modern fan engagement data shows that younger demographics crave participation: fantasy leagues, real time voting, and social integration. The data reveals that "engaged fans" spend 30% more on merchandise and secondary services than "passive viewers."</p>
+</div>
+<div class="cs-blk">
+<div class="cs-blk-lbl">Strategy Insight</div>
+<p class="">By mapping fan interactions across social media, apps, and ticket sales, teams can build a unified fan profile. This allows for hyper personalised marketing: suggesting a jersey purchase right after a specific athlete's peak performance. Real time performance metrics aren't just for coaches: they are content for the fans.</p>
+</div>
+<div class="cs-callout">
+<div class="cs-callout-lbl">Sports takeaway</div>
+<p class="">The game happens on the field, but the business grows on the screen. Data turns a 90 minute match into a 24/7 relationship.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- THINKING -->
+<section id="thinking">
+<p class="eyebrow">05 — Analyst Thinking</p>
+<h2 class="stitle">How I <em>see</em> problems.</h2>
+<div class="think-grid">
+<div class="tcard">
+<div class="tcard-lbl">Data → Decision</div>
+<h4 class="">A dashboard nobody reads is not a dashboard</h4>
+<p class="">Every dashboard I build starts with the question: what decision does this need to make easier? Not what data do we have, but what action changes because of this screen.</p>
+<div class="tcard-quote">"The interesting part of analysis is choosing what not to say."</div>
+</div>
+<div class="tcard">
+<div class="tcard-lbl">Requirements</div>
+<h4 class="">Ambiguity in a spec is a budget risk, not a style</h4>
+<p class="">Vague requirements feel harmless in discovery. They show up as scope creep, sprint overruns, and frustrated developers. Precision at the start is the cheapest investment in any project.</p>
+<div class="tcard-quote">"Every mid sprint change request is a requirement that wasn't written clearly enough."</div>
+</div>
+<div class="tcard">
+<div class="tcard-lbl">Stakeholder Communication</div>
+<h4 class="">The brief that moves a decision is not the longest one</h4>
+<p class="">Leadership doesn't need the full analysis in the room. They need the three things that changed because of it. Short, opinionated write ups outperform exhaustive decks every time.</p>
+<div class="tcard-quote">"A good summary is a point of view, not a list of findings."</div>
+</div>
+</div>
+</section>
+<!-- SKILLS -->
+<section id="skills">
+<div class="skills-layout">
+<div class="skills-intro">
+<p class="eyebrow">06 — Skills</p>
+<h2 class="stitle">The <em>toolkit.</em></h2>
+<p class="">Technical enough to build it myself, fluent enough to explain it to anyone who doesn't want to know how it was built.</p>
+</div>
+<div class="skill-groups">
+<div>
+<div class="sg-label">Core analytical tools</div>
+<div class="skill-pills">
+<span class="spill core">SQL / MySQL</span>
+<span class="spill core">Power BI</span>
+<span class="spill core">Excel (Advanced)</span>
+<span class="spill core">DAX</span>
+<span class="spill core">Python</span>
+<span class="spill core">Pandas</span>
+</div>
+</div>
+<div>
+<div class="sg-label">Business analysis</div>
+<div class="skill-pills">
+<span class="spill core">BRD FRD Writing</span>
+<span class="spill core">User Story Authoring</span>
+<span class="spill">UAT Coordination</span>
+<span class="spill">Process Mapping</span>
+<span class="spill">Stakeholder Management</span>
+<span class="spill">SWOT PESTEL</span>
+</div>
+</div>
+<div>
+<div class="sg-label">Delivery &amp; tooling</div>
+<div class="skill-pills">
+<span class="spill core">Jira</span>
+<span class="spill core">Agile Scrum</span>
+<span class="spill">Azure DevOps</span>
+<span class="spill">Postman</span>
+<span class="spill">Salesforce</span>
+<span class="spill">CI CD (basic)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EDUCATION -->
+<section id="education">
+<div class="edu-block">
+<div class="edu-tag">07 — Education</div>
+<div class="edu-deg">M.A. in International Business Management, Merit</div>
+<div class="edu-school">Middlesex University, London · Jan 2023 – Jan 2024</div>
+<p class="edu-detail">Focused on global strategy, digital transformation, and international market dynamics. Dissertation on how AI and platform economies reshape SME internationalisation: structured using PESTEL, SWOT, and primary research from McKinsey, WEF, and Deloitte. The MBA adjacent lens is why I think about data in terms of business decisions, not just metrics.</p>
+</div>
+<div class="edu-block">
+<div class="edu-tag"> </div>
+<div class="edu-deg">B.Engg in Information Science &amp; Engineering, Distinction</div>
+<div class="edu-school">East Point College of Engineering &amp; Technology (VTU), Bengaluru · Jan 2018 – Oct 2022</div>
+<p class="edu-detail">Technical foundation in databases, programming, software systems, and logic building. Final year project built an ML backed HR attrition analysis web application combining SQL schema design, Python modelling, and a non technical user interface. This degree is why I can read a schema, write a query, and understand what the engineer is building.</p>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+<div class="contact-layout">
+<div>
+<p class="eyebrow">08 — Contact</p>
+<h2 class="stitle">Let's<br/><em>talk.</em></h2>
+<p class="contact-desc">Hiring for a Business or Data Analyst role? Or want to trade notes on a problem you're working through? My inbox is open. I usually reply within a day.</p>
+</div>
+<div class="clinks">
+<a class="clink" href="mailto:vaishnaviramjwork@gmail.com">
+<div class="clink-icon">✉</div>
+<div>
+<span class="clink-type">Email</span>
+<span class="clink-val">vaishnaviramjwork@gmail.com</span>
+</div>
+</a>
+<a class="clink" href="https://www.linkedin.com/in/vaishnavi-ram-j/" target="_blank">
+<div class="clink-icon">in</div>
+<div>
+<span class="clink-type">LinkedIn</span>
+<span class="clink-val">linkedin.com/in/vaishnavi-ram-j</span>
+</div>
+</a>
+<a class="clink" href="https://calendly.com/vaishnaviramjwork/30min" target="_blank">
+<div class="clink-icon">📅</div>
+<div>
+<span class="clink-type">Book a call</span>
+<span class="clink-val">30 minute intro · Calendly</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<footer>
+<span class="">© 2026 Vaishnavi Ram Janakiram · Bengaluru, India</span>
+<span class="">Business Analyst · Data Analyst</span>
+<a class="" href="mailto:vaishnaviramjwork@gmail.com">vaishnaviramjwork@gmail.com</a>
+</footer>
+</body></html>
